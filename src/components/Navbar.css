@@ -77,7 +77,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: none;
   justify-content: center;
   align-items: center;
@@ -85,18 +85,18 @@ body {
 
   transition: 0.3s ease;
 
-  background: rgba(20,20,20,0.6);
+  background: rgba(20, 20, 20, 0.6);
 }
 
 .nav-menu-icon:hover {
-  box-shadow: 0 0 12px rgba(217,75,129,0.5);
+  box-shadow: 0 0 12px rgba(217, 75, 129, 0.5);
   border-color: #d94b81;
 }
 
 /* =======================
    RESPONSIVE
   ======================= */
-@media (max-width: 768px) {
+@media (max-width: 668px) {
   .nav-links {
     display: none;
   }
@@ -104,4 +104,71 @@ body {
   .nav-menu-icon {
     display: flex;
   }
+}
+
+/* ==========================
+   MOBILE SLIDE MENU (NEW)
+   ========================== */
+
+/* Wrapper for the full mobile menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -70%;
+  width: 40%;
+  height: 100vh;
+  background: rgba(15, 15, 15, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  display: flex;
+  flex-direction: column;
+  padding: 80px 30px;
+  gap: 30px;
+
+  transition: right 0.35s ease;
+  z-index: 1000;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: -4px 0 25px rgba(0, 0, 0, 0.4);
+}
+
+/* When the menu is open */
+.mobile-menu.open {
+  right: 0;
+}
+
+/* Mobile nav links inside the slide menu */
+.mobile-menu a {
+  color: #e6e6e6;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: 0.25s ease;
+}
+
+.mobile-menu a:hover {
+  color: #4465ee;
+  text-shadow: 0 0 10px #4465eeaa;
+}
+
+.mobile-menu a.active {
+  color: #d94b81;
+  text-shadow: 0 0 10px #d94b81aa;
+}
+
+/* Close button (X) */
+.mobile-close-icon {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.mobile-close-icon:hover {
+  color: #d94b81;
+  text-shadow: 0 0 12px #d94b81aa;
 }

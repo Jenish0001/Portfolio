@@ -17,7 +17,7 @@ export default function Profile() {
 
           <p className="profile-text">
             I’m a frontend developer who loves clean UI, smooth animations, and
-            building things that feel good to use.  
+            building things that feel good to use.
             I like turning ideas into visuals and visuals into working interfaces.
           </p>
 
