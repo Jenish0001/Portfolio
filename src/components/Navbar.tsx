@@ -15,6 +15,7 @@ export default function Navbar() {
         <li><Link to="/Profile">Profile</Link></li>
         <li><Link to="/Projects">Projects</Link></li>
         <li><Link to="/Contact">Contact</Link></li>
+        <li><Link to="/Resume">Resume</Link></li>
       </ul>
 
       {/* FUTURE: MOBILE MENU ICON */}

@@ -1,0 +1,126 @@
+:root {
+  --primary-pink: #d94b81;
+  --secondary-blue: #4465ee;
+  --text-primary: #E0E0E0;
+  --text-secondary: #A0A0A0;
+  --bg-dark: #121212;
+}
+
+/* MAIN CONTAINER */
+.contact-container {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 120px 10vw;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  text-align: center;
+}
+
+/* HEADINGS */
+.contact-title {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.contact-sub {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* FORM */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: min(500px, 90%);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  background: #1b1b1b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: 0.25s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary-pink);
+  box-shadow: 0 0 12px rgba(217, 75, 129, 0.4);
+  outline: none;
+}
+
+.send-btn {
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: var(--secondary-blue);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.send-btn:hover {
+  transform: translateY(-4px);
+  background: #3857e4;
+  box-shadow: 0 8px 16px rgba(68, 101, 238, 0.35);
+}
+
+/* SOCIAL LINKS */
+.socials {
+  margin-top: 20px;
+  display: flex;
+  gap: 25px;
+}
+
+.socials a {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  color: var(--primary-pink);
+  text-shadow: 0 0 12px rgba(217, 75, 129, 0.8);
+}
+
+/* RESUME BUTTON */
+.resume-section {
+  margin-top: 25px;
+}
+
+.resume-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: #1b1b1b;
+  border: 1px solid var(--secondary-blue);
+  color: var(--text-primary);
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.resume-btn:hover {
+  background: var(--secondary-blue);
+  color: white;
+  box-shadow: 0 0 15px rgba(68, 101, 238, 0.5);
+  transform: translateY(-4px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .contact-title {
+    font-size: 2.3rem;
+  }
+}
