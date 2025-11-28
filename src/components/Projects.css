@@ -1,0 +1,112 @@
+/* ROOT COLORS */
+:root {
+    --primary-pink: #d94b81;
+    --secondary-blue: #4465ee;
+    --text-primary: #E0E0E0;
+    --text-secondary: #A0A0A0;
+    --bg-dark: #121212;
+}
+
+/* MAIN PAGE */
+.projects-container {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 40px 10vw;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    box-sizing: border-box;
+}
+
+/* PAGE TITLE */
+.projects-container h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    position: relative;
+    width: fit-content;
+}
+
+.projects-container h1::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 60%;
+    height: 3px;
+    background: var(--primary-pink);
+    border-radius: 10px;
+}
+
+/* GRID */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* PROJECT CARD */
+.project-card {
+    background: #1b1b1b;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 20px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: 0.3s ease;
+    box-shadow: 0 0 22px rgba(217, 75, 129, 0.08);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-pink);
+    box-shadow: 0 8px 18px rgba(217, 75, 129, 0.25);
+}
+
+/* TITLE (ellipsis) */
+.project-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text-primary);
+}
+
+/* DESCRIPTION */
+.project-card p {
+    margin-top: 10px;
+    flex: 1;
+    color: var(--text-secondary);
+    line-height: 1.5;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* LINK */
+.project-card a {
+    color: var(--secondary-blue);
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 12px;
+}
+
+.project-card a:hover {
+    color: var(--primary-pink);
+    text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+    .project-card {
+        height: auto;
+    }
+
+    .project-card p {
+        -webkit-line-clamp: 4;
+    }
+}
