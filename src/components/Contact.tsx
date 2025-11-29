@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
-import "./Contact.css";
+import { useForm, ValidationError } from "@formspree/react";
+import "../styles/Contact.css";
 
 export default function Contact() {
+  const [state, handleSubmit] = useForm("xrbwdzqp");
+
   return (
     <motion.div
       className="contact-container"
@@ -14,15 +17,23 @@ export default function Contact() {
       <p className="contact-sub">Open to internships, collabs, and cool ideas.</p>
 
       {/* ===== CONTACT FORM ===== */}
-      <form className="contact-form">
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" rows={5} required />
+      {state.succeeded ? (
+        <p className="success-msg">Thanks! Your message has been sent.</p>
+      ) : (
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <input type="text" name="name" placeholder="Your Name" required />
 
-        <button type="submit" className="send-btn">
-          Send Message
-        </button>
-      </form>
+          <input type="email" name="email" placeholder="Your Email" required />
+          <ValidationError prefix="Email" field="email" errors={state.errors} />
+
+          <textarea name="message" placeholder="Your Message" rows={5} required />
+          <ValidationError prefix="Message" field="message" errors={state.errors} />
+
+          <button type="submit" className="send-btn" disabled={state.submitting}>
+            {state.submitting ? "Sending..." : "Send Message"}
+          </button>
+        </form>
+      )}
 
       {/* ===== SOCIALS ===== */}
       <div className="socials">

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import "./Profile.css";
+import "../styles/Profile.css";
 
 export default function Profile() {
   return (

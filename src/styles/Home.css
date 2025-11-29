@@ -1,36 +1,5 @@
-/* --- Root Variables & Global Reset (UPDATED FOR DARK THEME) --- */
-:root {
-    --primary-pink: #d94b81;
-    /* Pink accent */
-    --secondary-blue: #4465ee;
-    /* Blue accent */
-    --text-primary: #E0E0E0;
-    /* Light text on dark bg */
-    --text-secondary: #A0A0A0;
-    /* Muted text */
-    --bg-dark: #121212;
-    /* Deep Black/Dark Grey background for seamless profile integration */
-    --shadow-color: rgba(255, 255, 255, 0.05);
-}
-
-* {
-    box-sizing: border-box;
-}
-
-/* 🎯 CRITICAL FIX: Ensure HTML and Body use full viewport size */
-html,
 body {
-    height: 100%;
-    width: 100%;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-dark);
     color: var(--text-primary);
-    margin: 0;
-    background: #121212;
-    padding: 0;
     overflow-x: hidden;
 }
 

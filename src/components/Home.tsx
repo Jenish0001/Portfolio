@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import "./Home.css"; // We'll create this next
+import "../styles/Home.css"; // We'll create this next
 import image from "../assets/image.png";
 import { useNavigate } from "react-router-dom";
 
@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 export default function Home() {
 
   const navigate = useNavigate();
-
 
   return (
     <motion.div

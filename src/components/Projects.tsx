@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { getRepos } from "../api/getRepos";
 import { motion } from "framer-motion";
-import "./Projects.css";
+import "../styles/Projects.css";
+
 
 export default function Projects() {
   const [repos, setRepos] = useState<any[]>([]);
-  const username = "Rojeets";
+  const username = "Ayanokoji0001";
 
   useEffect(() => {
     getRepos(username)
@@ -14,7 +15,7 @@ export default function Projects() {
   }, []);
 
   return (
-        <motion.div
+    <motion.div
       className="projects-container"
       initial={{ opacity: 0, y: 80 }}
       animate={{ opacity: 1, y: 0 }}
@@ -22,7 +23,7 @@ export default function Projects() {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
 
-    
+
       <h1>My GitHub Projects</h1>
 
       <div className="projects-grid">
@@ -37,7 +38,7 @@ export default function Projects() {
           </div>
         ))}
       </div>
-    
-        </motion.div>
+
+    </motion.div>
   );
 }
