@@ -1,7 +1,6 @@
 /* MAIN PAGE */
 .projects-container {
     width: 100vw;
-    min-height: 100vh;
     padding: 40px 10vw;
     background: var(--bg-dark);
     color: var(--text-primary);

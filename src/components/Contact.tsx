@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useForm, ValidationError } from "@formspree/react";
 import "../styles/Contact.css";
 
@@ -6,13 +5,7 @@ export default function Contact() {
   const [state, handleSubmit] = useForm("xrbwdzqp");
 
   return (
-    <motion.div
-      className="contact-container"
-      initial={{ opacity: 0, y: 60 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -60 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-    >
+    <div className="contact-container">
       <h1 className="contact-title">Let's Connect</h1>
       <p className="contact-sub">Open to internships, collabs, and cool ideas.</p>
 
@@ -48,6 +41,7 @@ export default function Contact() {
           Download Resume
         </a>
       </div>
-    </motion.div>
+</div>
+
   );
 }

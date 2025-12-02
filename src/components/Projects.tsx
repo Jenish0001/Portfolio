@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import { getRepos } from "../api/getRepos";
-import { motion } from "framer-motion";
 import "../styles/Projects.css";
-
 
 export default function Projects() {
   const [repos, setRepos] = useState<any[]>([]);
-  const username = "Jenish0001";
+  const username = "jenish0001";
 
   useEffect(() => {
     getRepos(username)
@@ -15,17 +13,8 @@ export default function Projects() {
   }, []);
 
   return (
-    <motion.div
-      className="projects-container"
-      initial={{ opacity: 0, y: 80 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -80 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-    >
-
-
+    <div className="projects-container">
       <h1>My GitHub Projects</h1>
-
       <div className="projects-grid">
         {repos.map((repo) => (
           <div key={repo.id} className="project-card">
@@ -38,7 +27,6 @@ export default function Projects() {
           </div>
         ))}
       </div>
-
-    </motion.div>
+    </div>
   );
 }

@@ -1,15 +1,10 @@
-import { motion } from "framer-motion";
 import "../styles/Profile.css";
+import jenish from "../assets/jenish.jpg";
 
 export default function Profile() {
   return (
-    <motion.div
-      className="profile-container"
-      initial={{ opacity: 0, y: 60 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -60 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-    >
+    <div className="profile-container">
+
       {/* ===== ABOUT SECTION ===== */}
       <section className="profile-about">
         <div className="about-left">
@@ -22,15 +17,15 @@ export default function Profile() {
           </p>
 
           <ul className="quick-facts">
-            <li><strong>Location:</strong> Kathmandu, Nepal</li>
-            <li><strong>Focus:</strong> React, UI/UX, Frontend</li>
+            <li><strong>Location:</strong> Manamaiju, Kathmandu</li>
+            <li><strong>Focus:</strong> Full Stack Developer</li>
             <li><strong>Currently Learning:</strong> Animations + Advanced React</li>
           </ul>
         </div>
 
         <div className="about-right">
           <div className="profile-photo-wrapper">
-            <img src="/my-photo.png" alt="profile" className="profile-photo" />
+            <img src={jenish} alt="profile" className="profile-photo" />
           </div>
         </div>
       </section>
@@ -60,7 +55,7 @@ export default function Profile() {
         <h2 className="profile-heading">Tools I Use</h2>
 
         <div className="tools-row">
-          {["VS Code", "GitHub", "Chrome DevTools", "Figma", "NPM"].map(
+          {["VS Code", "GitHub", "Chrome DevTools", "NPM"].map(
             (tool, i) => (
               <div className="tool-box" key={i}>
                 {tool}
@@ -75,16 +70,17 @@ export default function Profile() {
         <div className="status-box">
           <h3>What I'm Working On</h3>
           <p>
-            Building my portfolio, learning advanced React patterns, and
-            leveling up my animation game.
+            Building my portfolio, Building the Guess_Who(OP_version) Game, Learning Advanced React patterns, and Learning animation libraries.
           </p>
         </div>
       </section>
 
       {/* ===== CTA ===== */}
       <section className="profile-cta">
-        <button className="profile-btn">View My Projects</button>
+        <a href="#projects">
+          <button className="profile-btn">View My Projects</button>
+        </a>
       </section>
-    </motion.div>
+    </div>
   );
 }
