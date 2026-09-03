@@ -4,36 +4,42 @@ import { useState } from "react";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const links = [
+    { id: "start", label: "start" },
+    { id: "build", label: "build" },
+    { id: "vault", label: "vault" },
+    { id: "connect", label: "connect" },
+  ];
+
   return (
     <>
       <nav className="navbar">
-        {/* LOGO */}
         <div className="nav-logo">
-          <a href="#home">JN</a>
+          <a href="#start">JN</a>
         </div>
 
-        {/* NAV LINKS (Desktop) */}
         <ul className="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#profile">Profile</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+          {links.map((l) => (
+            <li key={l.id}>
+              <a href={`#${l.id}`}>{l.label}</a>
+            </li>
+          ))}
         </ul>
 
-        {/* HAMBURGER ICON (Mobile) */}
         <div className="nav-menu-icon" onClick={() => setIsOpen(true)}>
           ☰
         </div>
       </nav>
 
-      {/* MOBILE SLIDE MENU */}
       <div className={`mobile-menu ${isOpen ? "open" : ""}`}>
-        <div className="mobile-close-icon" onClick={() => setIsOpen(false)}>✕</div>
-
-        <a href="#home" onClick={() => setIsOpen(false)}>Home</a>
-        <a href="#profile" onClick={() => setIsOpen(false)}>Profile</a>
-        <a href="#projects" onClick={() => setIsOpen(false)}>Projects</a>
-        <a href="#contact" onClick={() => setIsOpen(false)}>Contact</a>
+        <div className="mobile-close-icon" onClick={() => setIsOpen(false)}>
+          ✕
+        </div>
+        {links.map((l) => (
+          <a key={l.id} href={`#${l.id}`} onClick={() => setIsOpen(false)}>
+            {l.label}
+          </a>
+        ))}
       </div>
     </>
   );

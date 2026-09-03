@@ -1,86 +1,146 @@
 import "../styles/Profile.css";
 import jenish from "../assets/jenish.jpg";
 
+const skills = [
+  { name: "React", accent: "teal" as const },
+  { name: "JavaScript", accent: "amber" as const },
+  { name: "HTML & CSS", accent: "coral" as const },
+  { name: "Tailwind", accent: "teal" as const },
+  { name: "Framer Motion", accent: "violet" as const },
+  { name: "Git & GitHub", accent: "coral" as const },
+];
+
+const tools = ["VS Code", "GitHub", "Chrome DevTools", "NPM"];
+
 export default function Profile() {
   return (
-    <div className="profile-container">
+    <section id="build" className="profile section">
+      <div className="container profile-inner">
+        {/* ---- Header ---- */}
+        <p className="section-label">build</p>
+        <h2 className="section-title">
+          How I build<em>.</em>
+        </h2>
 
-      {/* ===== ABOUT SECTION ===== */}
-      <section className="profile-about">
-        <div className="about-left">
-          <h2 className="profile-heading">About Me</h2>
+        <div className="profile-top">
+          {/* ---- Working method ---- */}
+          <div className="profile-about">
+            <p className="about-text">
+              I build the web end-to-end: React front-ends, WordPress themes
+              with proper file architecture, and the structured-data layer
+              underneath.
+            </p>
 
-          <p className="profile-text">
-            I’m a frontend developer who loves clean UI, smooth animations, and
-            building things that feel good to use.
-            I like turning ideas into visuals and visuals into working interfaces.
-          </p>
+            <div className="about-text">
+              Right now I'm deep in the <strong>Nyayashree</strong> project —
+              a legal-services WordPress theme with JSON-LD structured-data
+              markup baked in for SEO. That's the thread:{" "}
+              <em>code that structures information</em>, whether it's a
+              component tree or schema that tells Google what a law firm
+              actually does.
+            </div>
+          </div>
 
-          <ul className="quick-facts">
-            <li><strong>Location:</strong> Manamaiju, Kathmandu</li>
-            <li><strong>Focus:</strong> Full Stack Developer</li>
-            <li><strong>Currently Learning:</strong> Animations + Advanced React</li>
-          </ul>
-        </div>
-
-        <div className="about-right">
-          <div className="profile-photo-wrapper">
-            <img src={jenish} alt="profile" className="profile-photo" />
+          {/* ---- Photo ---- */}
+          <div className="profile-photo-wrap">
+            <img src={jenish} alt="Jenish" className="profile-photo" />
           </div>
         </div>
-      </section>
 
-      {/* ===== SKILLS GRID ===== */}
-      <section className="profile-skills">
-        <h2 className="profile-heading">Skills</h2>
+        {/* ---- Quick facts (data labels) ---- */}
+        <div className="facts-row">
+          <span className="data-label">
+            <strong>location:</strong> Manamaiju, Kathmandu
+          </span>
+          <span className="sep">·</span>
+          <span className="data-label">
+            <strong>focus:</strong> full-stack + structured data
+          </span>
+          <span className="sep">·</span>
+          <span className="data-label">
+            <strong>currently learning:</strong> ML / data science
+          </span>
+        </div>
 
-        <div className="skills-grid">
-          {[
-            "React",
-            "JavaScript",
-            "HTML & CSS",
-            "Tailwind",
-            "Framer Motion",
-            "Git & GitHub",
-          ].map((skill, i) => (
-            <div className="skill-card" key={i}>
-              <span>{skill}</span>
+        {/* ---- Differentiators: feature + secondary, not equal tiles ---- */}
+        <div className="build-feature">
+          <div className="build-feature-main">
+            <span className="diff-tag diff-tag-coral">structured data · current build</span>
+            <h3>JSON-LD Schema — Nyayashree</h3>
+            <p className="build-feature-desc">
+              Building structured-data markup for the Nyayashree legal-services
+              WordPress theme — schema.org types baked into the theme's
+              templates, so search engines can tell exactly what a law firm
+              does. This is the clearest example of my thread:{" "}
+              <em>code that structures information</em>.
+            </p>
+            <span className="data-label build-feature-meta">
+              <strong>stack:</strong> wordpress · json-ld · schema.org
+              <span className="sep">·</span>
+              <strong>status:</strong> active
+            </span>
+          </div>
+
+          <div className="build-feature-side">
+            <div className="diff-item">
+              <span className="diff-tag diff-tag-teal">learning</span>
+              <h4>ML / Data Science</h4>
+              <p>
+                Teaching machines to find structure in data — the data-science
+                echo of what schema does for search.
+              </p>
             </div>
-          ))}
+            <div className="diff-item">
+              <span className="diff-tag diff-tag-violet">policy</span>
+              <h4>APNIC Policy Course</h4>
+              <p>
+                Internet governance and policy frameworks — structure at the
+                protocol level, not just code.
+              </p>
+            </div>
+          </div>
         </div>
-      </section>
 
-      {/* ===== TOOLS ===== */}
-      <section className="profile-tools">
-        <h2 className="profile-heading">Tools I Use</h2>
-
-        <div className="tools-row">
-          {["VS Code", "GitHub", "Chrome DevTools", "NPM"].map(
-            (tool, i) => (
-              <div className="tool-box" key={i}>
-                {tool}
-              </div>
-            )
-          )}
+        {/* ---- Skills ---- */}
+        <div className="skills-section">
+          <h3 className="skills-heading">Skills</h3>
+          <div className="skills-grid">
+            {skills.map((s) => (
+              <span className={`skill-chip skill-${s.accent}`} key={s.name}>
+                {s.name}
+              </span>
+            ))}
+          </div>
         </div>
-      </section>
 
-      {/* ===== CURRENT STATUS ===== */}
-      <section className="profile-status">
+        {/* ---- Tools ---- */}
+        <div className="skills-section">
+          <h3 className="skills-heading">Tools</h3>
+          <div className="skills-grid">
+            {tools.map((t) => (
+              <span className="skill-chip skill-mono" key={t}>
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* ---- Status ---- */}
         <div className="status-box">
-          <h3>What I'm Working On</h3>
+          <span className="data-label">
+            <strong>status:</strong> active
+          </span>
           <p>
-            Building my portfolio, Building the Guess_Who(OP_version) Game, Learning Advanced React patterns, and Learning animation libraries.
+            Building the Nyayashree theme, experimenting with ML models,
+            and learning advanced React patterns — one repo at a time.
           </p>
         </div>
-      </section>
 
-      {/* ===== CTA ===== */}
-      <section className="profile-cta">
-        <a href="#projects">
-          <button className="profile-btn">View My Projects</button>
+        {/* ---- CTA ---- */}
+        <a href="#vault">
+          <button className="btn btn-primary">Visit the Vault →</button>
         </a>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }

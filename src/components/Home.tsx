@@ -1,58 +1,43 @@
-import "../styles/Home.css"; // We'll create this next
-import image from "../assets/image.png";
-
+import "../styles/Home.css";
+import jenish from "../assets/jenish.jpg";
 
 export default function Home() {
-
   return (
-    <div className="home-container">
-
-      <div className="hero">
-        {/* LEFT SIDE */}
+    <section id="start" className="hero section">
+      <div className="container hero-inner">
         <div className="hero-left">
-          <span className="small-intro">HELLO, I'M JENISH</span>
-
           <h1 className="hero-title">
-            Full Stack Developer
+            Jenish
+            <span className="hero-role">Full Stack Developer</span>
           </h1>
 
-          <p className="hero-sub">Build One Repo at a Time.</p>
+          <p className="hero-sub">
+            I build the web end-to-end — React apps, WordPress themes, and the
+            structured data behind them, from UI to <em>JSON-LD schema</em>.
+          </p>
+
+          <div className="hero-meta data-label">
+            <strong>role:</strong> developer
+            <span className="sep">·</span>
+            <strong>stack:</strong> react / typescript / wordpress
+          </div>
 
           <div className="hero-buttons">
-            <a href="#profile">
-              <button className="btn pink">
-                About Me
-              </button>
+            <a href="#build">
+              <button className="btn btn-primary">How I build</button>
             </a>
-            <a href="#projects">
-              <button className="btn blue">
-                Works
-              </button>
+            <a href="#vault">
+              <button className="btn btn-ghost">See the work</button>
             </a>
-
           </div>
         </div>
 
-        {/* RIGHT SIDE */}
         <div className="hero-right">
-          {/* Replace with your picture */}
           <div className="profile-wrapper">
-            <img
-              src={image}
-              alt="profile"
-              className="profile-img"
-            />
+            <img src={jenish} alt="Jenish" className="profile-img" />
           </div>
-
-
-
-          {/* Decorative shapes */}
-          <div className="shape shape-red"></div>
-          <div className="shape shape-blue"></div>
         </div>
       </div>
-
-    </div>
-
+    </section>
   );
 }

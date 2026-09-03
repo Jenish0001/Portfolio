@@ -1,0 +1,182 @@
+/* ============================================================
+   BUILD LOG — GLOBAL THEME
+   Vibrant, minimalistic. Spec-sheet / annotated-blueprint voice.
+   ============================================================ */
+
+:root {
+  /* Base surfaces */
+  --paper: #fafbfc;
+  --surface: #ffffff;
+  --surface-soft: #f2f4f7;
+
+  /* Ink — ink-soft kept neutral-cool for legibility on warm paper */
+  --ink: #161616;
+  --ink-soft: #4d535b;
+  --line: #e3e6eb;
+
+  /* Vibrant accents — used as structural tags/annotations only */
+  --coral: #ff5a5f;
+  --teal: #00b8a9;
+  --violet: #7c5cff;
+  --amber: #ffb400;
+
+  /* Typography */
+  --font-display: "Source Serif 4", Georgia, serif;
+  --font-body: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+html,
+body {
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  background: var(--paper);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}
+
+/* ---------- Shared layout helpers ---------- */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 110px 0;
+}
+
+/* ---------- Section header (spec-sheet style) ---------- */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-label::before {
+  content: "//";
+  color: var(--coral);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.05;
+  margin: 14px 0 18px;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--coral);
+}
+
+.section-intro {
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+/* ---------- Buttons (clean, no glow) ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  transition: all 0.25s ease;
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.btn-primary:hover {
+  background: var(--coral);
+  border-color: var(--coral);
+  transform: translateY(-2px);
+}
+
+.btn-ghost:hover {
+  border-color: var(--ink);
+  transform: translateY(-2px);
+}
+
+/* ---------- Mono data label ---------- */
+.data-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.data-label strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 0;
+  }
+}

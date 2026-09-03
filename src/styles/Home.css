@@ -1,264 +1,128 @@
-body {
-    color: var(--text-primary);
-    overflow-x: hidden;
-}
-
-/* --- Main Wrapper (Framer Motion) --- */
-.home-container {
-    width: 100vw;
-    min-height: 100vh;
-    padding: 0;
-}
-
-/* --- Hero Section Layout (Full Width and Centered) --- */
+/* ============================
+   BUILD LOG — HERO (Chapter: start)
+   Clean, airy, plain framed photo.
+   ============================ */
 .hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin: 0;
-    padding: 100px 10vw;
-    min-height: calc(100vh - 0px);
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
 }
 
 .hero-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 4rem;
-    flex: 5;
-    max-width: 55%;
-    padding-right: 40px;
-    /* background-color: red; */
-
-}
-
-.hero-right {
-    flex: 4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    max-width: 45%;
-    height: 550px;
-    margin-bottom: 2rem;
-}
-
-/* --- Text and Typography --- */
-.small-intro {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--secondary-blue);
-    /* Accent color */
-    margin-bottom: 20px;
-    position: relative;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.small-intro::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: calc(100% + 10px);
-    transform: translateY(-50%);
-    width: 50px;
-    height: 2px;
-    background-color: var(--primary-pink);
-    border-radius: 2px;
+  flex: 5;
+  max-width: 620px;
 }
 
 .hero-title {
-    font-size: 4rem;
-    font-weight: 800;
-    line-height: 1.1;
-    margin: 0 0 10px 0;
-    color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 0.95;
+  color: var(--ink);
+}
+
+.hero-role {
+  display: block;
+  margin-top: 16px;
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2.4vw, 1.4rem);
+  font-weight: 500;
+  color: var(--ink-soft);
 }
 
 .hero-sub {
-    font-size: 1.8rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    /* Muted text */
-    margin: 0 0 40px 0;
+  margin: 28px 0 22px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 540px;
 }
 
-/* --- Buttons --- */
+.hero-sub em {
+  font-style: normal;
+  color: var(--coral);
+  font-weight: 600;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 34px;
+}
+
+.hero-meta .sep {
+  color: var(--line);
+}
+
 .hero-buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    /* background-color: red; */
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
-.btn {
-    padding: 14px 35px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    /* Darker shadow */
+/* ---- Plain framed photo (spec-sheet, not mounted print) ---- */
+.hero-right {
+  flex: 4;
+  display: flex;
+  justify-content: center;
+  max-width: 420px;
 }
 
-.btn.pink {
-    background-color: var(--primary-pink);
-    color: var(--text-primary);
-}
-
-.btn.pink:hover {
-    background-color: #c73a71;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(217, 75, 129, 0.4);
-}
-
-.btn.blue {
-    background-color: var(--secondary-blue);
-    color: var(--text-primary);
-}
-
-.btn.blue:hover {
-    background-color: #3857e4;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(68, 101, 238, 0.4);
-}
-
-/* --- Profile Image and Wrapper (Seamless Integration) --- */
 .profile-wrapper {
-    position: relative;
-    z-index: 10;
-    max-width: 450px;
-    height: auto;
-    border-radius: 12px;
-    overflow: hidden;
-    /* Set background to match global dark background for seamless integration */
-    background-color: var(--bg-dark);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  width: 100%;
+  max-width: 360px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface);
 }
 
 .profile-img {
-    display: block;
-    width: 100%;
-    height: auto;
-    /* Remove filter since the image is likely dark already */
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
+  filter: saturate(0.9);
 }
 
-/* --- Decorative Shapes --- */
-.shape {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.6;
-    /* Slightly less opaque for dark background */
-    z-index: 5;
-    filter: blur(4px);
-    /* Increased blur for a softer glow effect */
-}
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 900px) {
+  .hero-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 48px;
+  }
 
-.shape-red {
-    background-color: var(--primary-pink);
-    width: 180px;
-    height: 180px;
-    top: 100px;
-    left: 20px;
-    transform: translate(-50%, -50%);
-}
+  .hero-left {
+    max-width: 100%;
+  }
 
-.shape-blue {
-    background-color: var(--secondary-blue);
-    width: 220px;
-    height: 220px;
-    bottom: 50px;
-    right: 0px;
-    transform: translate(50%, 50%);
-}
+  .hero-sub,
+  .hero-meta {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-/* --- Media Queries for Responsiveness --- */
-@media (max-width: 1200px) {
-    .hero {
-        padding: 80px 5vw;
-    }
+  .hero-meta {
+    justify-content: center;
+  }
 
-    .hero-title {
-        font-size: 3.5rem;
-    }
-}
+  .hero-buttons {
+    justify-content: center;
+  }
 
-@media (max-width: 992px) {
-    .hero-title {
-        font-size: 3rem;
-    }
-
-    .hero-sub {
-        font-size: 1.3rem;
-    }
-
-    .hero-left {
-        max-width: 60%;
-    }
-
-    .hero-right {
-        max-width: 40%;
-        height: 450px;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 60px 20px;
-        min-height: auto;
-    }
-
-    .hero-left,
-    .hero-right {
-        max-width: 100%;
-    }
-
-    .hero-left {
-        order: 2;
-        margin-top: 40px;
-    }
-
-    .hero-right {
-        order: 1;
-        height: 350px;
-        margin-bottom: 40px;
-    }
-
-    .small-intro::before {
-        content: none;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .hero-title {
-        font-size: 2.2rem;
-    }
-
-    .hero-sub {
-        font-size: 1.2rem;
-    }
-
-    .shape-red {
-        width: 120px;
-        height: 120px;
-        top: 50px;
-        left: 10%;
-    }
-
-    .shape-blue {
-        width: 150px;
-        height: 150px;
-        bottom: 50px;
-        right: 10%;
-    }
+  .hero-right {
+    max-width: 320px;
+  }
 }

@@ -1,5 +1,15 @@
-export async function getRepos(username: string) {
-  const res = await fetch(`https://api.github.com/users/${username}/repos`);
-  if (!res.ok) throw new Error("Failed to fetch repos");
+export interface Repo {
+  id: number;
+  name: string;
+  description: string | null;
+  html_url: string;
+  language: string | null;
+}
+
+export async function getRepos(username: string): Promise<Repo[]> {
+  const res = await fetch(
+    `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`
+  );
+  if (!res.ok) throw new Error("Failed to fetch repositories");
   return res.json();
 }
